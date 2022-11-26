@@ -23,19 +23,49 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     row-gap: 2rem;
     /* padding: 9.6rem 1.6rem; */
 }
 
-input {
+.crypto-select {
+    display: inline-flex;
+    justify-content: space-around;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 85%;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+}
+
+.radio-input {
+    display: none;
+}
+
+.radio-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+    border: 0.2rem solid #40c057;
+    border-radius: 8px;
+    width: 18rem;
+    height: 4.8rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.radio-input:checked + .radio-label {
+    background-color: #40c057;
+    color: #fff;
+}
+
+.price {
     /* border: none; */
     width: 45rem;
     height: 4rem;
     font-size: 2.4rem;
     border-radius: 30px;
     padding-inline: 1rem;
-    margin-bottom: 1rem;
 }
 
 .short-long-choice {
@@ -66,6 +96,19 @@ input {
     display: flex;
     flex-direction: column;
     width: 50rem;
+}
+
+.percentage-choice {
+    display: flex;
+    column-gap: 2.4rem;
+}
+
+.input-perc {
+    height: 4.6rem;
+    width: 20rem;
+    font-size: 2.4rem;
+    border-radius: 8px;
+    padding-inline: 2rem;
 }
 
 .titles,

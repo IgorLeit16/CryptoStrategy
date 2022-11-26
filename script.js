@@ -4,17 +4,44 @@ const btnLong = document.querySelector(".btn-long");
 const btnShort = document.querySelector(".btn-short");
 const valueLoss = document.querySelector(".value-loss");
 const valueProfit = document.querySelector(".value-profit");
+const radioBtns = document.querySelectorAll(".radio-input");
+const profPerc = document.querySelector(".input-limt");
+const lossPerc = document.querySelector(".input-stls");
+const selectCrypto = () => {
+    let selectedCrypto;
+    for (let radioBtn of radioBtns) {
+        if (radioBtn.checked) {
+            selectedCrypto = radioBtn.value;
+            break;
+        }
+    }
+    return selectedCrypto;
+};
 
 btnLong.addEventListener("click", () => {
+    let selectedCrypto = selectCrypto();
     let currentPrice = price.value;
-    price.value = null;
-    valueLoss.textContent = (currentPrice * 0.996).toFixed(4);
-    valueProfit.textContent = (currentPrice * 1.005).toFixed(4);
+    let profit = profPerc.value / 100;
+    let loss = lossPerc.value / 100;
+    if (selectedCrypto === "Bitcoin" || selectedCrypto === "Etherum") {
+        valueLoss.textContent = (currentPrice * (1 - loss)).toFixed(1);
+        valueProfit.textContent = (currentPrice * (1 + profit)).toFixed(1);
+    } else {
+        valueLoss.textContent = (currentPrice * (1 - loss)).toFixed(4);
+        valueProfit.textContent = (currentPrice * (1 + profit)).toFixed(4);
+    }
 });
 
 btnShort.addEventListener("click", () => {
+    let selectedCrypto = selectCrypto();
     let currentPrice = price.value;
-    price.value = null;
-    valueLoss.textContent = (currentPrice * 1.004).toFixed(4);
-    valueProfit.textContent = (currentPrice * 0.995).toFixed(4);
+    let profit = profPerc.value / 100;
+    let loss = lossPerc.value / 100;
+    if (selectedCrypto === "Bitcoin" || selectedCrypto === "Etherum") {
+        valueLoss.textContent = (currentPrice * (1 + loss)).toFixed(1);
+        valueProfit.textContent = (currentPrice * (1 - profit)).toFixed(1);
+    } else {
+        valueLoss.textContent = (currentPrice * (1 + loss)).toFixed(4);
+        valueProfit.textContent = (currentPrice * (1 - profit)).toFixed(4);
+    }
 });

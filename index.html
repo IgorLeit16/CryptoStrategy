@@ -11,10 +11,48 @@
     </head>
     <body>
         <div class="box">
+            <div class="crypto-select">
+                <input
+                    type="radio"
+                    class="radio-input"
+                    value="Bitcoin"
+                    name="radioBtn"
+                    id="btc-select"
+                />
+                <label for="btc-select" class="radio-label">Bitcoin</label>
+                <input
+                    type="radio"
+                    class="radio-input"
+                    value="Etherum"
+                    name="radioBtn"
+                    id="eth-select"
+                />
+                <label for="eth-select" class="radio-label">Etherum</label>
+                <input
+                    type="radio"
+                    class="radio-input"
+                    value="Matic"
+                    name="radioBtn"
+                    id="matic-select"
+                />
+                <label for="matic-select" class="radio-label">Matic</label>
+                <input
+                    type="radio"
+                    class="radio-input"
+                    value="Else"
+                    name="radioBtn"
+                    id="else-select"
+                />
+                <label for="else-select" class="radio-label">Else</label>
+            </div>
             <input type="text" class="price" />
             <div class="short-long-choice">
                 <button type="button" class="btn btn-long">Long</button>
                 <button type="button" class="btn btn-short">Short</button>
+            </div>
+            <div class="percentage-choice">
+                <input type="text" class="input-perc input-stls" placeholder="Stop Loss" />
+                <input type="text" class="input-perc input-limt" placeholder="Limit Profit" />
             </div>
             <div class="text">
                 <div class="titles">
